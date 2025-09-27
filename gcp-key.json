@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "ml-experiments-472716",
+  "private_key_id": "61fb184466cbff90f72a6953aa5a9d5df0173792",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDMuuKh46hIJt7s\nmdpgijzpOCcCfhNpIo/7fAeSfYU9/i7J3FFhZJ2ObH3RLL3Kp/wa5Vv9RMUfxzKO\n2H6AF5YhrxxueK+gDuH2MgWplI4fTmp9pgtta9zH5LhaO9M6FJd3VILcnmDWhICb\nwpGkU11dKIUd2pkYrR5IExcuIRf5xW7k0f4qqP67WHS6nzrI1Lj36DP6xLL+vfFu\nSZMBJat6e4rB4ZC32VNcgExf4tXmA4BrnZdUZUSJTIofDP7O2NSFMyyVy1rqPEqS\nweSD9D4madUZZg87b45bt0uzN7WhNvVi7TmzzV+GrMF1Pybjc6WcOFvuhB/unQ09\nIwyzpIP1AgMBAAECggEASKr1En1aF/IkIlsh1i57HFTgE9RoU2L/NEZ78ZU4HB8C\nwIfBIw6xlgIQTpTQ8QPbSjirBCTKy1LLMUTK8fBtS5t6PgP8YpWlwttSgzTFlXsh\n9WNgnwAwJ4uZm/2sJet1L9gBcwmMWdhCRgcz5t3oP87IISacPNQF8ZNFIQyCFBdL\nNEPq7DcM54xg+danbRKSW2yQiq2jhi6+2DFFXnN2Dkn2AyVIIX/RtXkaOdJa1m9V\nX30VkBA8c3yWTfMUd8TjaPfNKmQfz+5pA8MmxU2IFblNPrkZRGgFMUf9GQs0aGOo\nFBdclmtXGqnDQYGgzgmSKCmRoJCbA9NCEvGqyfTo6QKBgQD1LnC+tjni2eaUYxCZ\nKphp6pORWWQB4fDxMGZU4hrOHDg/7CMQxsKSdLQ8Gz2vZHof1F4kGvLFECKxEVHS\n4plOtcmF+vdekaa9txdnjK0NKWpjkEmVHFN+WwLIjm+yJ7bokZRajQYkpyaEQYP3\n9dmpcgGQPWP96JXCJgp3h1IohwKBgQDVw4HxHodaDX65eD8M/JIy22xoF3tuk+qu\na3KIlasBRP66N1KodC6OIsZ/kDMWKnDLSXV+1UgDQEcfqAHMK1u6Crd6Kgis/7Rr\niGZWwFZildfQh/aCeAQ1Osbi9uipIJ9diCAk4cybDrRfi8MU3y5D5h4f5re4raH7\nUr8SBNEaowKBgQCYUr3g/j2AXngOgG1zey8tvnrntm2XbdPPRI6O9dpJaubXb9Fp\nPtLrQm4nWZU9PmNRGxNRwxxIqfmjoGsBZZ5xdCc7gevlaP/6paF4x8FLiAt8x8uv\nQ+XrfoeAKl3ihSHx42AT0cGbS+12BW4Dw03zI80s27cfrDw+XnvqPrwgSQKBgBQw\nqR9LEOGykJuX/eyOFojzLKQQQ7pIAkyDHYhFCqfOCnkwLIB4qMUIB9OYnRqk2453\n278lCe40rgMRbUoJdlp2FKpXOgaNCE93zKK4++/H02CA1wmvqEYWzR42z/bZe/Pr\nnY2ePiMPGn5DxyM7iTUkkQfWVNf+nmQMhrt+9PkdAoGAPaFYFYQsYhqymoQx9m0/\nW+HK/OAz1/5THIuDX+5mHle90PdRR71mbsm2vm+mdBMIEgSsvUYFEDDuaIeYbfEk\nhdHNv6tr7W0viiRu0Frbo0OitetNywW3tCUGIXCKHGLVj/oJxarn0SaIHOOy18ff\nrJ5ArBs+qfEe2svqQvWXIEc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "mlflow-service@ml-experiments-472716.iam.gserviceaccount.com",
+  "client_id": "107916860005521741104",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mlflow-service%40ml-experiments-472716.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -1,0 +1,20 @@
+# dvc.yaml
+
+stages:
+  process_data:
+    cmd: python src/process_data.py
+    deps:
+      - src/process_data.py
+      - data/raw/green_tripdata_2023-01.parquet
+      - data/raw/green_tripdata_2023-02.parquet
+    outs:
+      - data/processed
+
+  train_model:
+    cmd: python src/train.py
+    deps:
+      - src/train.py
+      - data/processed
+      - configs/params.yaml
+    # We don't define 'outs' here because the primary outputs (model, metrics)
+    # are tracked by MLFlow, not DVC.

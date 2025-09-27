@@ -1,0 +1,14 @@
+pandas
+scikit-learn==1.3.2
+numpy
+pyarrow
+fastparquet
+mlflow==2.8.1
+dvc[gcs]==3.42.0
+great-expectations
+python-dotenv
+pyyaml
+google-cloud-storage
+fastapi
+uvicorn[standard]
+requests

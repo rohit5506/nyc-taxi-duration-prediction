@@ -1,0 +1,39 @@
+schema: '2.0'
+stages:
+  process_data:
+    cmd: python src/process_data.py
+    deps:
+    - path: data/raw/green_tripdata_2023-01.parquet
+      hash: md5
+      md5: 4ddd13febe8dfe9e32c41c26175a5115
+      size: 1427002
+    - path: data/raw/green_tripdata_2023-02.parquet
+      hash: md5
+      md5: c749ee0f612e91b1dedf70681a689efc
+      size: 1533740
+    - path: src/process_data.py
+      hash: md5
+      md5: 1a50e7070ad9300e661fbab917a5b9ed
+      size: 2534
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: 1b395c897587cc756248f21a544f9bff.dir
+      size: 6181344
+      nfiles: 5
+  train_model:
+    cmd: python src/train.py
+    deps:
+    - path: configs/params.yaml
+      hash: md5
+      md5: 9e97935aef77be04a0a382e3a64874bd
+      size: 386
+    - path: data/processed
+      hash: md5
+      md5: 1b395c897587cc756248f21a544f9bff.dir
+      size: 6181344
+      nfiles: 5
+    - path: src/train.py
+      hash: md5
+      md5: c37eff2c3682d840ce07cf92245b09c9
+      size: 2381
