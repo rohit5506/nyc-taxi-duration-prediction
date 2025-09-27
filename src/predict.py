@@ -1,66 +1,63 @@
 # src/predict.py
 
+import os
+import pickle
+import mlflow
 from fastapi import FastAPI
 from pydantic import BaseModel
-import mlflow
-import pickle
-import os
 import yaml
 
-# --- 1. Define the input data schema ---
+# --- 1. Define input schema ---
 class TripInput(BaseModel):
     PULocationID: str
     DOLocationID: str
     trip_distance: float
 
-# --- 2. Initialize the FastAPI app ---
+# --- 2. Initialize FastAPI app ---
 app = FastAPI()
 
-# --- 3. Load Model and Preprocessor ---
-def load_artifacts(config_path="configs/params.yaml"):
-    """Loads the MLFlow model and the data preprocessor."""
-    with open(config_path) as f:
+# --- 3. Load artifacts at startup ---
+# These global variables will be populated when the app starts
+model = None
+dv = None
+
+@app.on_event("startup")
+def load_artifacts():
+    global model, dv
+
+    with open("configs/params.yaml") as f:
         params = yaml.safe_load(f)
-    
-    # Connect to MLFlow and get the latest production model URI
+
+    # Set MLFlow tracking URI
     mlflow.set_tracking_uri(params["mlflow"]["tracking_uri"])
-    
-    # This assumes your model is in the 'production' stage in MLFlow
-    # Format: "models:/<model_name>/<stage>"
+
+    # Construct model URI for the production model
     model_uri = f"models:/{params['mlflow']['experiment_name']}/production"
-    
-    try:
-        model = mlflow.sklearn.load_model(model_uri)
-    except mlflow.exceptions.MlflowException:
-        # If 'production' model doesn't exist, fall back to latest version
-        model_uri = f"models:/{params['mlflow']['experiment_name']}/latest"
-        model = mlflow.sklearn.load_model(model_uri)
-        
-    # Load the DictVectorizer preprocessor
-    processed_path = params["data"]["processed_path"]
-    with open(os.path.join(processed_path, "dv.pkl"), "rb") as f_in:
+    print(f"Loading model from: {model_uri}")
+
+    # Download and load the model
+    model = mlflow.sklearn.load_model(model_uri)
+    print("Model loaded successfully.")
+
+    # Download and load the preprocessor (DictVectorizer)
+    # The client knows how to find the artifact path relative to the model
+    client = mlflow.tracking.MlflowClient()
+    run_id = client.get_latest_versions(params['mlflow']['experiment_name'], stages=["Production"])[0].run_id
+    dv_path = client.download_artifacts(run_id=run_id, path="preprocessor/dv.pkl")
+    print(f"Preprocessor downloaded to: {dv_path}")
+
+    with open(dv_path, 'rb') as f_in:
         dv = pickle.load(f_in)
-        
-    return model, dv
+    print("Preprocessor loaded successfully.")
 
-model, dv = load_artifacts()
-
-# --- 4. Define the prediction endpoint ---
+# --- 4. Define prediction endpoint ---
 @app.post("/predict")
 def predict_duration(trip: TripInput):
-    """Accepts trip data and returns a duration prediction."""
-    
-    # Convert input data to a dictionary and then to a feature vector
     trip_dict = trip.dict()
     X_trip = dv.transform([trip_dict])
-    
-    # Make a prediction
     prediction = model.predict(X_trip)
-    
     return {"predicted_duration_minutes": float(prediction[0])}
 
-# A root endpoint for health checks
 @app.get("/")
 def read_root():
     return {"status": "NYC Taxi Prediction API is running."}
-
