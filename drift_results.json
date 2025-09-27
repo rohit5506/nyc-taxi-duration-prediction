@@ -1,0 +1,42 @@
+{
+  "trip_distance": {
+    "ks_statistic": 0.015113916968365282,
+    "p_value": 8.428601848412301e-07,
+    "drift_detected": true,
+    "reference_mean": 8.317161162162982,
+    "current_mean": 13.981120433406847,
+    "mean_difference": 5.663959271243865
+  },
+  "duration": {
+    "ks_statistic": 0.013378224416664253,
+    "p_value": 2.0210069321268474e-05,
+    "drift_detected": true,
+    "reference_mean": 13.747575288872715,
+    "current_mean": 14.004824687569915,
+    "mean_difference": 0.25724939869719954
+  },
+  "fare_amount": {
+    "ks_statistic": 0.006744156125588957,
+    "p_value": 0.10728244996315173,
+    "drift_detected": false,
+    "reference_mean": 16.34607967124617,
+    "current_mean": 16.37727123086266,
+    "mean_difference": 0.03119155961649156
+  },
+  "tip_amount": {
+    "ks_statistic": 0.008321073151908331,
+    "p_value": 0.02331238815291864,
+    "drift_detected": true,
+    "reference_mean": 2.1543888939435294,
+    "current_mean": 2.170034359318567,
+    "mean_difference": 0.015645465375037748
+  },
+  "total_amount": {
+    "ks_statistic": 0.0071542537744127,
+    "p_value": 0.07438668838478613,
+    "drift_detected": false,
+    "reference_mean": 21.58566690928942,
+    "current_mean": 21.67352414740947,
+    "mean_difference": 0.0878572381200513
+  }
+}

@@ -1,0 +1,12 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install only required packages
+RUN pip install --no-cache-dir --timeout 300 --retries 3 pandas numpy scipy pyarrow
+
+# Copy monitoring script and data
+COPY monitoring_script.py .
+COPY data/raw/ ./data/raw/
+
+CMD ["python", "monitoring_script.py"]

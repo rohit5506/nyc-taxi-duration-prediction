@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Drift Monitoring Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .header { background-color: #f0f0f0; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
+        .summary { background-color: #e6f3ff; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 10px; text-align: left; border: 1px solid #ddd; }
+        th { background-color: #4CAF50; color: white; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Data Drift Monitoring Report</h1>
+        <p><strong>Generated:</strong> 2025-09-27 15:50:50</p>
+    </div>
+
+    <div class="summary">
+        <h2>📊 Summary</h2>
+        <p><strong>Total Features Analyzed:</strong> 5</p>
+        <p><strong>Features with Drift Detected:</strong> 3</p>
+        <p><strong>Drift Detection Rate:</strong> 60.0%</p>
+    </div>
+
+    <h2>📈 Feature Analysis</h2>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Drift Status</th>
+            <th>KS Statistic</th>
+            <th>P-value</th>
+            <th>Reference Mean</th>
+            <th>Current Mean</th>
+            <th>Mean Change</th>
+        </tr>
+        
+    <tr style="background-color: #ffe6e6;">
+        <td>🚨 trip_distance</td>
+        <td>DRIFT DETECTED</td>
+        <td>0.0151</td>
+        <td>0.0000</td>
+        <td>8.3172</td>
+        <td>13.9811</td>
+        <td>+5.6640</td>
+    </tr>
+    <tr style="background-color: #ffe6e6;">
+        <td>🚨 duration</td>
+        <td>DRIFT DETECTED</td>
+        <td>0.0134</td>
+        <td>0.0000</td>
+        <td>13.7476</td>
+        <td>14.0048</td>
+        <td>+0.2572</td>
+    </tr>
+    <tr style="background-color: #e6ffe6;">
+        <td>✅ fare_amount</td>
+        <td>NO DRIFT</td>
+        <td>0.0067</td>
+        <td>0.1073</td>
+        <td>16.3461</td>
+        <td>16.3773</td>
+        <td>+0.0312</td>
+    </tr>
+    <tr style="background-color: #ffe6e6;">
+        <td>🚨 tip_amount</td>
+        <td>DRIFT DETECTED</td>
+        <td>0.0083</td>
+        <td>0.0233</td>
+        <td>2.1544</td>
+        <td>2.1700</td>
+        <td>+0.0156</td>
+    </tr>
+    <tr style="background-color: #e6ffe6;">
+        <td>✅ total_amount</td>
+        <td>NO DRIFT</td>
+        <td>0.0072</td>
+        <td>0.0744</td>
+        <td>21.5857</td>
+        <td>21.6735</td>
+        <td>+0.0879</td>
+    </tr>
+    </table>
+
+    <div style="margin-top: 40px; color: #666;">
+        <h3>📋 Methodology</h3>
+        <p>This report uses the Kolmogorov-Smirnov test to detect distribution drift.</p>
+        <p><strong>Drift Detection:</strong> p-value < 0.05 indicates significant change</p>
+    </div>
+</body>
+</html>
