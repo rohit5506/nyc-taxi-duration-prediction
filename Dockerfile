@@ -19,4 +19,4 @@ COPY ./data/processed /app/data/processed
 EXPOSE 8000
 
 # Run predict.py when the container launches
-CMD ["uvicorn", "src.predict:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD exec uvicorn src.predict:app --host 0.0.0.0 --port ${PORT}

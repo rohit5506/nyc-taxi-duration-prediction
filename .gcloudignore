@@ -1,0 +1,17 @@
+# .gcloudignore
+
+# Exclude the gcp key, it should be in secrets
+gcp-key.json
+
+# Exclude the entire conda environment
+/nyc-taxi/
+
+# Exclude DVC cache, but NOT the data itself for now
+.dvc/cache
+# /data/raw
+# /data/processed
+
+# Standard ignores
+.git
+.gitignore
+.gcloudignore
